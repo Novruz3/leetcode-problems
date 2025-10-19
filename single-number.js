@@ -21,4 +21,3 @@ let singleNumber = function (nums) {
   return res;
 };
 
-console.log(singleNumber([4, 1, 2, 1, 2]));
