@@ -33,5 +33,4 @@ let twoSum = function (nums, target) {
       }
     }
   }
-  return "No solution";
 };
