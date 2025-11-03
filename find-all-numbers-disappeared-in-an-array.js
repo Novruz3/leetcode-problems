@@ -8,15 +8,17 @@
 // Input: nums = [1,1]
 // Output: [2]
 
-
-// tazeden islemeli time limit
-
-// var findDisappearedNumbers = function (nums) {
-//   let arr = [];
-//   for (let i = 1; i <= nums.length; i++) {
-//     if (!nums.includes(i)) {
-//       arr.push(i);
-//     }
-//   }
-//   return arr;
-// };
+var findDisappearedNumbers = function (nums) {
+  let res = [];
+  for (let i = 0; i < nums.length; i++) {
+    while (nums[i] !== nums[nums[i] - 1]) {
+      let temp = nums[i];
+      nums[i] = nums[temp - 1];
+      nums[temp - 1] = temp;
+    }
+  }
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] != i + 1) res.push(i + 1);
+  }
+  return res;
+};
