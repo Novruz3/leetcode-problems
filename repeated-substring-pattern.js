@@ -14,25 +14,32 @@
 // Output: true
 // Explanation: It is the substring "abc" four times or the substring "abcabc" twice.
 
+// var repeatedSubstringPattern = function (s) {
+//   if (
+//     s.split(s.slice(0, 1)).join("") === "" &&
+//     s.split(s.slice(0, 1)).length > 2
+//   ) {
+//     return true;
+//   }
+//   let len = s.length;
+//   for (let i = 2; i < len; i++) {
+//     if (s.length % i === 0) {
+//       if (
+//         s.split(s.slice(0, i)).join("") === "" ||
+//         s.split(s.slice(0, len / i)).join("") === ""
+//       ) {
+//         return true;
+//       } else {
+//         len /= i;
+//       }
+//     }
+//   }
+//   return false;
+// };
+
+// best solution
 var repeatedSubstringPattern = function (s) {
-  if (
-    s.split(s.slice(0, 1)).join("") === "" &&
-    s.split(s.slice(0, 1)).length > 2
-  ) {
-    return true;
-  }
-  let len = s.length;
-  for (let i = 2; i < len; i++) {
-    if (s.length % i === 0) {
-      if (
-        s.split(s.slice(0, i)).join("") === "" ||
-        s.split(s.slice(0, len / i)).join("") === ""
-      ) {
-        return true;
-      } else {
-        len /= i;
-      }
-    }
-  }
-  return false;
+  let doubled = s + s;
+  let sliced = doubled.slice(1, -1);
+  return sliced.includes(s);
 };
