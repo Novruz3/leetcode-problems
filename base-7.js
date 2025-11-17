@@ -9,7 +9,7 @@
 // Output: "-10"
 
 var convertToBase7 = function (num) {
-  res = "";
+  let res = "";
   if (num < 0) {
     num *= -1;
     var minus = "-";
